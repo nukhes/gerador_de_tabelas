@@ -11,7 +11,7 @@ void main() {
     "pass": "2345678hour",
     "age": "99"
     };
-    print(createTable.mapTable(myData, 15, 25));
+    print(createTable.mapTable(myData, 8, 25));
 
   });
 }

@@ -1,5 +1,4 @@
 class Table {
-  
 
   String mapTable(Map value, int firstColumnWidth, int secondColumnWidth) {
     // separator
