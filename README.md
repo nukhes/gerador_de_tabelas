@@ -15,7 +15,7 @@ Table creation library for command line programs.
 
 ## Features
 - Simple and functional.
-- Uses a Map-based function to render the table
+- Uses a Map-based function to render the table or an List.
 - Fast.
 
 ## Usage
@@ -26,6 +26,8 @@ Table createTable = new Table();
 ```
 
 Done, start using  it!
+
+### With a map (basic mode):
 ```
 const myData = { 
 "name": "cleide", 
@@ -34,4 +36,19 @@ const myData = {
 "age": "99"
 };
 print(createTable.mapTable(myData, 15, 25));
+```
+
+### (UNSTABLE) With a Array (advanced mode):
+```
+Table createTable = Table();
+List myData = [
+  ["title"],
+  ["LINE"],
+  ["name", "01", "02", "03"],
+  ["pedro", "A", "B", "C"],
+  ["rafa", "X", "Y", "Zeeeee"],
+  ["LINE"],
+  ["19-10-2007", "sus"],
+];
+print(createTable.arrayTable(myData, 70));
 ```
