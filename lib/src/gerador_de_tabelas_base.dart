@@ -24,24 +24,35 @@ class Table {
   }
 
   String arrayTable(List value, int width) {
-    // separator
     String line = "+${"-" * (width - 2)}+";
     String res = "$line\n";
 
     // generate each row
     for (int row = 0; row < value.length; row++) {
 
+      int rowCharLength = width;
+
       // render each row element
       for (int element = 0; element < value[row].length; element++) {
+        int elementLength =value[row][element].length;
+        String ElementText = value[row][element].toString();
+        int rowElementWidth = (((width/value[row].length).toInt()/2) - elementLength).toInt();
+
+        rowCharLength -= ElementText.length;
 
         // if the element is a LINE (separator), render as a line;
         if (value[row][element] == "LINE") {
           res += line;
-        } else {
-          int elementLength =value[row][element].length;
-          num rowElementWidth = ((width/value[row].length).toInt()/2) - elementLength;
-          res += "| ${value[row][element].toString()}${" "*(rowElementWidth.toInt())}";
+        } else { // else render as a normal row
+          // if this is the last element
+          if (value[row][element] == value[row][value[row].length-1]) {
+            res += "| $ElementText${" "*(rowCharLength)}|";
+          } else {
+            res += "| $ElementText${" "*(rowElementWidth)}";
+            
+          }
         }
+
         
       }
 
